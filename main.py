@@ -13,7 +13,7 @@ BEARER_TOKEN = "" \
 
 def main():
     bot_client = tweepy.Client(BEARER_TOKEN, API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)  # Initiate Client
-    print("-----KENNA BOT ACTIVATED-----")
+    print("-----BOT ACTIVATED-----")
     user = bot_client.get_user(username="clampls")  # Query API for target using username
     target = user.data.id  # Get TwitterID for target user
     print(f'Tracking user "@{user.data.username}" - ID: {target}')
@@ -21,7 +21,7 @@ def main():
     previous_tweet_id = "0"  # Default value for first run (can use file to store state later)
     while True:  # Loop the program forever
         previous_tweet_id = get_latest_tweet(previous_tweet_id, bot_client, target)
-        time.sleep(600)  # How long to wait (in seconds) before checking again
+        time.sleep(1200)  # How long to wait (in seconds) before checking again
 
 
 def get_latest_tweet(previous_tweet_id, bot, user_id):
