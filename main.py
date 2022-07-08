@@ -84,12 +84,13 @@ def respond(latest_tweet_id, bot):
     if response:  # confirm response
         print(f'Responded Successfully - {response_time_stamp}')
         print("----------------------")
+
+        with open('last_tweet_id.txt', "w+") as latest_tweet_record:  # open the file
+            latest_tweet_record.write(latest_tweet_id)  # write the tweetID to the file
+
     else:
         print('Response Failed')
         print("----------------------")
-
-    with open('last_tweet_id.txt', "w+") as latest_tweet_record:  # open the file
-        latest_tweet_record.write(latest_tweet_id)  # write the tweetID to the file
 
 
 if __name__ == "__main__":
